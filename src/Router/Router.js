@@ -6,6 +6,7 @@ import HomePage from "../Component/HomePage/Home/HomePage";
 import Login from "../Component/Login/Login";
 import Register from "../Component/Register/Register";
 import Main from "../LayOut/Main";
+import PrivetRouter from "./PrivetRouter";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/catagory/:brand',
-                element: <Catagory></Catagory>,
+                element: <PrivetRouter><Catagory></Catagory></PrivetRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/alllaptops/${params.brand}`)
 
             },

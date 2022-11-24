@@ -18,24 +18,14 @@ const Navbar = () => {
         <li ><Link to='/home'>Home</Link></li>
         <li ><Link to='/blog'>Blog</Link></li>
 
-        {user?.email ?
 
-            <>
-                <button onClick={handleLogout}>Log Out</button>
-
-                <p>{user?.eamil}</p>
-            </>
-            :
-            <li ><Link to='/login'>Login</Link></li>
-
-        }
 
     </>
 
 
 
     return (
-        <div className="navbar bg-black text-white">
+        <div className="navbar bg-black text-white px-14">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -57,7 +47,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                {user?.email ?
+
+                    <>
+                        <button onClick={handleLogout}>Log Out</button>
+
+                        <p>{user?.eamil}</p>
+                    </>
+                    :
+                    <li className='list-none'><Link to='/login'>Login</Link></li>
+
+                }
             </div>
         </div>
     );
