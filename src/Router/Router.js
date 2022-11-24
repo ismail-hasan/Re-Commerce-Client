@@ -28,12 +28,12 @@ const router = createBrowserRouter([
             {
                 path: '/register', element: <Register></Register>
             },
-            {
-                path: '/catagory/:brand',
-                element: <Catagory></Catagory>,
-                loader: ({ params }) => fetch(`http://localhost:5000/alllaptops/${params.brand}`)
+            // {
+            //     path: '/catagory/:brand',
+            //     element: <Catagory></Catagory>,
+            //     loader: ({ params }) => fetch(`http://localhost:5000/alllaptops/${params.brand}`)
 
-            },
+            // },
         ]
     }
 ])
