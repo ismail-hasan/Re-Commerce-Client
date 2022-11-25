@@ -3,6 +3,7 @@ import { AiOutlineGoogle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authProvider } from '../../AuthContext/AuthContext';
+import toast from 'react-hot-toast';
 
 
 const Register = () => {
@@ -10,6 +11,7 @@ const Register = () => {
     const { createUser, userProfile, googleSignIn } = useContext(authProvider)
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate()
+
 
     const handleRegister = (data) => {
         console.log(data)
@@ -19,6 +21,9 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 handleUserProfile(data.name)
+                toast.success('user added success')
+
+
             })
             .catch(e => console.log(e))
 
@@ -27,18 +32,21 @@ const Register = () => {
 
     const handleUserProfile = (name) => {
         const profile = {
-            displayName: name,
+            displayName: name
 
         };
+
         userProfile(profile)
             .then(() => { })
-            .catch((e) => {
-                console.log(e);
-            });
+            .catch(e => {
+                console.log(e)
+
+
+
+            })
     };
 
     const handleGoogle = () => {
-
 
         googleSignIn()
             .then(result => {
@@ -59,21 +67,36 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input {...register('name')} type="text" placeholder="User Name" className="input input-bordered" />
+                        <input required  {...register('name')} type="text" placeholder="User Name" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input  {...register('email')} type="text" placeholder="email" className="input input-bordered" />
+                        <input required  {...register('email')} type="text" placeholder="email" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input  {...register('password')} type="text" placeholder="password" className="input input-bordered" />
+                        <input required  {...register('password')} type="text" placeholder="password" className="input input-bordered" />
 
                     </div>
+
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Pick the best fantasy franchise
+                            </span>
+                        </label>
+                        <select  {...register('roll')} className="select select-bordered">
+
+                            <option>Buyer Acount</option>
+                            <option>Seller Acount</option>
+
+                        </select>
+
+                    </div>
+
                     <div>
                         <p className='mt-2'>already have an acount <Link className='text-violet-600' to='/login'>Login</Link> </p>
                     </div>

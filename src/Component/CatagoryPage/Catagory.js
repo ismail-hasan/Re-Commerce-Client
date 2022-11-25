@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import CatagoryList from './CatagoryList';

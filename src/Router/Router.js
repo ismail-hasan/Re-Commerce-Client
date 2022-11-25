@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../Component/BlogPage/Blog";
 import Catagory from "../Component/CatagoryPage/Catagory";
+import AddProduct from "../Component/Dashbord/AddProduct/AddProduct";
 import DashbordLayout from "../Component/Dashbord/DashbordLayout";
 import MyProducts from "../Component/Dashbord/MyProdrcts/MyProducts";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
             {
                 path: '/register', element: <Register></Register>
             },
+            
             {
                 path: '/catagory/:brand',
                 element: <PrivetRouter><Catagory></Catagory></PrivetRouter>,
@@ -46,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/myproduct',
                 element: <MyProducts></MyProducts>,
+            },
+            {
+                path: '/dashbord/addproduct',
+                element: <AddProduct></AddProduct>,
             },
         ]
     }
