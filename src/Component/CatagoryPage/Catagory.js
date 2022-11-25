@@ -6,7 +6,7 @@ import CatagoryList from './CatagoryList';
 const Catagory = () => {
     const productDatas = useLoaderData()
     const [product, setProduct] = useState(productDatas)
- 
+
 
     return (
         <div className='grid grid-cols-3 gap-10 py-20 px-[70px]'>
@@ -18,7 +18,14 @@ const Catagory = () => {
 
                 ></CatagoryList>)
             }
-            <Modal product={product}></Modal>
+            {
+                product &&
+                <Modal
+
+                    product={product}
+                    setProduct={setProduct}
+                ></Modal>
+            }
 
         </div>
     );

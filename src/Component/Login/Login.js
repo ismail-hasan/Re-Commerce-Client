@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authProvider } from '../../AuthContext/AuthContext';
+import { AiOutlineGoogle } from 'react-icons/ai';
 
 const Login = () => {
-    const { signIn } = useContext(authProvider)
+    const { signIn, googleSignIn } = useContext(authProvider)
     const { register, handleSubmit, } = useForm()
     const location = useLocation()
     const navigate = useNavigate()
@@ -23,6 +24,19 @@ const Login = () => {
             .catch(e => console.log(e))
     }
 
+    const handleGoogle = () => {
+
+
+        googleSignIn()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                navigate("/")
+
+            })
+            .catch(e => console.log(e))
+
+    }
     return (
         <div className="bg-base-200 flex justify-center h-screen items-center">
             <div className='w-[30%]'>
@@ -41,7 +55,7 @@ const Login = () => {
                         <input  {...register('password')} type="password" placeholder="password" className="input input-bordered" />
                         <div className="label">
                             <div>
-                                <p>already have an acount <Link to='/register'>register</Link> </p>
+                                <p>already have an acount <Link className='text-violet-600 pt-2' to='/register'>register</Link> </p>
                             </div>
                         </div>
                     </div>
@@ -49,6 +63,11 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
+                <div className='text-center'>
+                    <h1 className='py-5 capitalize text-sm '>or sign up using</h1>
+
+                    <button onClick={handleGoogle} className="btn btn-outline w-full flex items-center" > <AiOutlineGoogle className='text-3xl text-black mr-3' /> Continue With Google</button>
+                </div>
             </div>
         </div >
     );

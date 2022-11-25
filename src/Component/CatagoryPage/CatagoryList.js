@@ -1,8 +1,7 @@
 import React from 'react';
 
 const CatagoryList = ({ productData, setProduct }) => {
-    const { name, brand, _id } = productData
-    console.log(productData)
+    const { name, brand, price } = productData
 
     return (
         <div className='border pb-10'>
@@ -11,7 +10,7 @@ const CatagoryList = ({ productData, setProduct }) => {
                 <h1 className='pt-4 capitalize'>Product Name : {name}</h1>
                 <h1 className='text-sm font-bold capitalize'>Brand : {brand}</h1>
                 <del > <p className='text-lg text-[tomato] font-bold'>Original Price : $ 533</p></del>
-                <p>Sell Price : $ 533</p>
+                <p>Sell Price : $ {price}</p>
                 <p>Used : 5 Month </p>
                 <label onClick={() => setProduct(productData)} htmlFor="my-modal-3" className="btn">open modal</label>
             </div>

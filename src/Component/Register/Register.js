@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authProvider } from '../../AuthContext/AuthContext';
 
 
 const Register = () => {
 
-    const { createUser, userProfile } = useContext(authProvider)
+    const { createUser, userProfile, googleSignIn } = useContext(authProvider)
     const { register, handleSubmit } = useForm()
+    const navigate = useNavigate()
 
     const handleRegister = (data) => {
         console.log(data)
@@ -36,6 +37,19 @@ const Register = () => {
             });
     };
 
+    const handleGoogle = () => {
+
+
+        googleSignIn()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                navigate("/")
+            })
+            .catch(e => console.log(e))
+
+    }
+
 
     return (
         <div className="bg-base-200 flex justify-center h-screen items-center">
@@ -61,16 +75,16 @@ const Register = () => {
 
                     </div>
                     <div>
-                        <p>already have an acount <Link to='/login'>Login</Link> </p>
+                        <p className='mt-2'>already have an acount <Link className='text-violet-600' to='/login'>Login</Link> </p>
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
                 <div className='text-center'>
-                    <h1 className='py-5 capitalize text-lg'>or sign up using</h1>
+                    <h1 className='py-5 capitalize text-sm'>or sign up using</h1>
 
-                    <button className="btn btn-outline w-full flex items-center" > <AiOutlineGoogle className='text-3xl text-black mr-3' /> Button</button>
+                    <button onClick={handleGoogle} className="btn btn-outline w-full flex items-center" > <AiOutlineGoogle className='text-3xl text-black mr-3' /> Continue With Google</button>
                 </div>
             </div>
         </div >

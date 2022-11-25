@@ -4,7 +4,6 @@ import { authProvider } from '../../AuthContext/AuthContext';
 
 const Navbar = () => {
     const { user, LogOut } = useContext(authProvider)
-    console.log("user is", user)
 
     const handleLogout = () => {
 
@@ -17,6 +16,7 @@ const Navbar = () => {
 
         <li ><Link to='/home'>Home</Link></li>
         <li ><Link to='/blog'>Blog</Link></li>
+        <li ><Link to='/dashbord'>Dashbord</Link></li>
 
 
 
@@ -37,7 +37,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -52,7 +52,6 @@ const Navbar = () => {
                     <>
                         <button onClick={handleLogout}>Log Out</button>
 
-                        <p>{user?.eamil}</p>
                     </>
                     :
                     <li className='list-none'><Link to='/login'>Login</Link></li>
