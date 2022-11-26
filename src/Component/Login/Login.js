@@ -1,15 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authProvider } from '../../AuthContext/AuthContext';
 import { AiOutlineGoogle } from 'react-icons/ai';
+import useToken from '../../Hook/Hook';
 
 const Login = () => {
     const { signIn, googleSignIn } = useContext(authProvider)
     const { register, handleSubmit, } = useForm()
+
+    const [loginUser, setLoginUser] = useState('')
+    const [token] = useToken(loginUser)
+
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
+
+
+    if (token) {
+        return navigate(from, { replace: true })
+
+    }
 
     const handleLogin = (data) => {
         console.log(data)
@@ -18,25 +29,41 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate(from, { replace: true })
+                setLoginUser(data.email)
 
             })
             .catch(e => console.log(e))
     }
 
+
     const handleGoogle = () => {
-
-
         googleSignIn()
             .then(result => {
                 const user = result.user
-                console.log(user)
-                navigate("/")
-
+                setLoginUser(user.email)
+                const googleUser = {
+                    displayName: user.displayName,
+                    email: user.email,
+                    "roll": "Buyer Acount"
+                }
+                console.log(googleUser)
+                fetch(`http://localhost:5000/users`, {
+                    method: "POST",
+                    headers: {
+                        'content-type': "application/json",
+                    },
+                    body: JSON.stringify(googleUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
             })
             .catch(e => console.log(e))
-
     }
+
+
+
     return (
         <div className="bg-base-200 flex justify-center h-screen items-center">
             <div className='w-[30%]'>

@@ -36,6 +36,20 @@ const UserAdmin = () => {
                 console.log(data)
             })
     }
+    const handleVarify = (id) => {
+        fetch(`http://localhost:5000/allusers/varify/${id}`, {
+            method: "PUT"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    toast.success('user varifyed')
+                    refetch()
+
+                }
+            })
+    }
 
     return (
         <div>
@@ -50,6 +64,7 @@ const UserAdmin = () => {
                             <th>Email</th>
                             <th>Name</th>
                             <th>Roll</th>
+                            <th>IsVerify</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -61,6 +76,9 @@ const UserAdmin = () => {
                                 <td >{data.email}</td>
                                 <td>{data.name}</td>
                                 <td className='font-bold'>{data.roll}</td>
+
+                                <td className='font-bold'>{data?.isvarify !== "varify" && <button onClick={() => handleVarify(data._id)} className='btn btn-xs'>Verify</button>}</td>
+
                                 <td><button className='btn btn-xs' disabled={data.roll === "admin"} onClick={() => handleDelete(data._id)}>delete</button></td>
                             </tr>)
                         }

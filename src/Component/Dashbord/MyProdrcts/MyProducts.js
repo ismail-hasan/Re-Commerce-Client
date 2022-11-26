@@ -21,7 +21,7 @@ const MyProducts = () => {
         }
     })
 
-    console.log(products)
+
 
     if (isLoading) {
         return <Loder></Loder>
@@ -60,10 +60,7 @@ const MyProducts = () => {
                     </thead>
 
                     <tbody>
-                        {products.length == '0' ?
-                            <h1 className='font-semibold capitalize'>no product available</h1>
-
-                            :
+                        {products.length > 0 &&
 
                             products.map((product, idx) => <tr key={product._id}>
                                 <th>{idx + 1}</th>

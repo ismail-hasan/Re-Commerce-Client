@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../FireBase/Firebase.init';
+import CatagoryList from '../Component/CatagoryPage/CatagoryList';
 
 
 export const authProvider = createContext()
@@ -43,7 +44,22 @@ const AuthContext = ({ children }) => {
         }
     }, [])
 
+    //
 
+    // const [userVarify, setUserVarify] = useState([])
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/allusers`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             setUserVarify(data)
+    //         })
+    // }, [])
+    // console.log("context", userVarify);
+
+
+    //
     const userInfo = {
         user,
         loading,
@@ -51,7 +67,9 @@ const AuthContext = ({ children }) => {
         signIn,
         LogOut,
         userProfile,
-        googleSignIn
+        googleSignIn,
+
+
     }
 
     return (

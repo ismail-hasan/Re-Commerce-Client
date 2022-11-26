@@ -27,8 +27,9 @@ const HomePage = () => {
     ]
 
     return (
-        <div className='px-[80px]'>
+        <div className='px-[80px] my-10'>
             <Home></Home>
+            <h1 className='text-center font-semibold text-3xl capitalize pb-9'>Latest Catagory</h1>
             <div className='grid grid-cols-3 gap-10'>
                 {
                     cataData.map(data => <Catagroy data={data} key={data.id}></Catagroy>)

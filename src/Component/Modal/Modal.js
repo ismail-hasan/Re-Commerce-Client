@@ -65,7 +65,7 @@ const Modal = ({ product, setProduct }) => {
 
                     <input required name='location' type="text" placeholder="Meet Location" className="input input-bordered input-accent w-full my-2" />
 
-                    <button className="btn btn-active">Button</button>
+                    <button className="btn btn-active">Submit</button>
                 </form>
             </div>
         </div>

@@ -18,7 +18,7 @@ const DashbordLayout = () => {
                 setLoginUsers(data)
             })
     }, [user?.email])
-    
+
     if (loading) {
         return <Loder></Loder>
     }
@@ -36,21 +36,25 @@ const DashbordLayout = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                        {
-                            loginUsers?.roll === "Seller Acount" &&
-                            <>
-                                <li><Link to='/dashbord/myproduct'>My Order</Link></li>
-                                <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
-                            </>
-                        }
+                        {/* <li><Link to='/dashbord/myproduct'>My Order</Link></li> */}
+
                         {
                             loginUsers?.roll === "Buyer Acount" &&
                             <li><Link to='/dashbord/myproduct'>My Order</Link></li>
                         }
+
+                        {
+                            loginUsers?.roll === "Seller Acount" &&
+                            <>
+                                <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
+                                <li><Link to='/dashbord/sellerprodct'>My Product</Link></li>
+                            </>
+                        }
+
                         {
                             loginUsers?.roll === "admin" &&
                             <>
-                                <li><Link to='/dashbord/myproduct'>My Order</Link></li>
+
                                 <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
                                 <li><Link to='/dashbord/useradmin'>Admin</Link></li>
                             </>

@@ -2,10 +2,10 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <div className='flex items-center h-screen'>
+        <div className='flex items-center h-[80vh]'>
             <div className='w-1/2'>
-                <h1 className="text-5xl font-bold">Box Office News!</h1>
-                <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <h1 className="text-4xl font-bold text-black">Welcome To Re-Commerce</h1>
+                <p className="py-6 mr-5 text-lg">Re-Commerce website is a buy selling website . any kind of user bying product of our website. and sell product . how ever enjoy our re commerce</p>
                 <button className="btn btn-primary">Get Started</button>
             </div>
             <div className='w-1/2'>

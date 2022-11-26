@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authProvider } from '../../AuthContext/AuthContext';
 import toast from 'react-hot-toast';
+import useToken from '../../Hook/Hook';
 
 
 const Register = () => {
@@ -11,7 +12,12 @@ const Register = () => {
     const { createUser, userProfile, googleSignIn } = useContext(authProvider)
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate()
+    const [createEmailUser, setCreateEmailUser] = useState('')
+    const [token] = useToken(createEmailUser)
 
+    if (token) {
+        return navigate('/')
+    }
 
     const handleRegister = (data) => {
         // console.log(data)
@@ -51,34 +57,35 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(data => {
-                getUserToken(email)
+                setCreateEmailUser(email)
                 console.log(data)
             })
 
     }
-
-    const getUserToken = (email) => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.accessToken) {
-                    localStorage.setItem('accessToken', data.accessToken)
-                    navigate("/")
-                }
-                console.log(data)
-            })
-    }
-
+    
     const handleGoogle = () => {
-
         googleSignIn()
             .then(result => {
                 const user = result.user
-                console.log(user)
-                navigate("/")
+                const googleUser = {
+                    displayName: user.displayName,
+                    email: user.email,
+                    "roll": "Buyer Acount"
+                }
+                console.log(googleUser)
+                fetch(`http://localhost:5000/users`, {
+                    method: "POST",
+                    headers: {
+                        'content-type': "application/json",
+                    },
+                    body: JSON.stringify(googleUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
             })
             .catch(e => console.log(e))
-
     }
 
 
