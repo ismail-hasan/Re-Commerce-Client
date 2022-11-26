@@ -31,6 +31,7 @@ const UserAdmin = () => {
                 if (data.deletedCount > 0) {
                     toast.error('user delete sucess')
                     refetch()
+
                 }
                 console.log(data)
             })
@@ -38,7 +39,7 @@ const UserAdmin = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-semibold py-6 capitalize'>add a product</h1>
+            <h1 className='text-3xl font-semibold py-6 capitalize'>Admin Dashbord</h1>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -57,10 +58,10 @@ const UserAdmin = () => {
                         {
                             allData.map((data, idx) => <tr key={data._id}>
                                 <th>{idx + 1}</th>
-                                <td>{data.email}</td>
+                                <td >{data.email}</td>
                                 <td>{data.name}</td>
-                                <td>{data.roll}</td>
-                                <td><button onClick={() => handleDelete(data._id)}>delete</button></td>
+                                <td className='font-bold'>{data.roll}</td>
+                                <td><button className='btn btn-xs' disabled={data.roll === "admin"} onClick={() => handleDelete(data._id)}>delete</button></td>
                             </tr>)
                         }
 

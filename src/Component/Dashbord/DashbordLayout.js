@@ -9,7 +9,6 @@ const DashbordLayout = () => {
 
     const { user, loading } = useContext(authProvider)
     const [loginUsers, setLoginUsers] = useState([])
-    console.log(loginUsers)
 
 
     useEffect(() => {
@@ -19,6 +18,7 @@ const DashbordLayout = () => {
                 setLoginUsers(data)
             })
     }, [user?.email])
+    
     if (loading) {
         return <Loder></Loder>
     }

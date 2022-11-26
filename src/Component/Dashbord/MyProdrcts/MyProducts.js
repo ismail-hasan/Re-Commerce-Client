@@ -21,6 +21,8 @@ const MyProducts = () => {
         }
     })
 
+    console.log(products)
+
     if (isLoading) {
         return <Loder></Loder>
     }
@@ -44,6 +46,7 @@ const MyProducts = () => {
             <h1 className='text-3xl font-semibold py-4 capitalize'>my products</h1>
 
             <div className="overflow-x-auto">
+
                 <table className="table w-full">
 
                     <thead>
@@ -55,8 +58,13 @@ const MyProducts = () => {
                             <th>Delete</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        {
+                        {products.length == '0' ?
+                            <h1 className='font-semibold capitalize'>no product available</h1>
+
+                            :
+
                             products.map((product, idx) => <tr key={product._id}>
                                 <th>{idx + 1}</th>
                                 <td className='capitalize'>{product.ProductName}</td>
