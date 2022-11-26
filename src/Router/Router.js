@@ -4,6 +4,7 @@ import Catagory from "../Component/CatagoryPage/Catagory";
 import AddProduct from "../Component/Dashbord/AddProduct/AddProduct";
 import DashbordLayout from "../Component/Dashbord/DashbordLayout";
 import MyProducts from "../Component/Dashbord/MyProdrcts/MyProducts";
+import UserAdmin from "../Component/Dashbord/UserAdmin/UserAdmin";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
 import HomePage from "../Component/HomePage/Home/HomePage";
 import Login from "../Component/Login/Login";
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: '/register', element: <Register></Register>
             },
-            
+
             {
                 path: '/catagory/:brand',
                 element: <PrivetRouter><Catagory></Catagory></PrivetRouter>,
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashbord",
-        element: <DashbordLayout></DashbordLayout>,
+        element: <PrivetRouter><DashbordLayout></DashbordLayout></PrivetRouter>,
         children: [
             {
                 path: '/dashbord/myproduct',
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashbord/addproduct',
-                element: <AddProduct></AddProduct>,
+                element: <PrivetRouter><AddProduct></AddProduct></PrivetRouter>,
+            },
+            {
+                path: '/dashbord/useradmin',
+                element: <PrivetRouter> <UserAdmin></UserAdmin> </PrivetRouter>,
             },
         ]
     }

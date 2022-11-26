@@ -1,15 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { authProvider } from '../../../AuthContext/AuthContext';
 import Loder from '../../Loder';
 
 const MyProducts = () => {
+    const { user } = useContext(authProvider)
 
 
     const { data: products = [], isLoading, refetch } = useQuery({
-        queryKey: ["bookings"],
+        queryKey: ["bookings", user?.email],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/bookings')
+            const res = await fetch(`http://localhost:5000/book?email=${user?.email}`, {
+                headers: {
+                    authorization: `bearar ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await res.json()
             return data
         }

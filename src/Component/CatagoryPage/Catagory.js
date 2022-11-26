@@ -7,7 +7,6 @@ const Catagory = () => {
     const productDatas = useLoaderData()
     const [product, setProduct] = useState(productDatas)
 
-
     return (
         <div className='grid grid-cols-3 gap-10 py-20 px-[70px]'>
             {

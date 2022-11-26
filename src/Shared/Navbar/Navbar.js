@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { authProvider } from '../../AuthContext/AuthContext';
+import Loder from '../../Component/Loder';
 
 const Navbar = () => {
-    const { user, LogOut } = useContext(authProvider)
+    const { user, LogOut, loading } = useContext(authProvider)
 
     const handleLogout = () => {
 
@@ -11,16 +12,25 @@ const Navbar = () => {
             .then(() => { })
             .catch(e => console.log(e))
     }
+    if (loading) {
+        return <Loder></Loder>
+    }
 
     const Menu = <>
 
-        <li ><Link to='/home'>Home</Link></li>
-        <li ><Link to='/blog'>Blog</Link></li>
-        <li ><Link to='/dashbord'>Dashbord</Link></li>
-      
-
-
-
+        {
+            user?.email ?
+                <>
+                    <li ><Link to='/home'>Home</Link></li>
+                    <li ><Link to='/blog'>Blog</Link></li>
+                    <li li > <Link to='/dashbord/myproduct'>Dashbord</Link></li>
+                </>
+                :
+                <>
+                    <li ><Link to='/home'>Home</Link></li>
+                    <li ><Link to='/blog'>Blog</Link></li>
+                </>
+        }
     </>
 
 

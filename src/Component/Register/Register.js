@@ -14,7 +14,7 @@ const Register = () => {
 
 
     const handleRegister = (data) => {
-        console.log(data)
+        // console.log(data)
 
         createUser(data.email, data.password)
             .then(result => {
@@ -22,13 +22,11 @@ const Register = () => {
                 console.log(user)
                 handleUserProfile(data.name)
                 toast.success('user added success')
-
-
+                saveUser(data.name, data.email, data.roll)
             })
             .catch(e => console.log(e))
 
     }
-
 
     const handleUserProfile = (name) => {
         const profile = {
@@ -38,13 +36,38 @@ const Register = () => {
 
         userProfile(profile)
             .then(() => { })
-            .catch(e => {
-                console.log(e)
-
-
-
-            })
+            .catch(e => console.log(e))
     };
+
+    const saveUser = (name, email, roll) => {
+        const user = { name, email, roll }
+        console.log(user)
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                getUserToken(email)
+                console.log(data)
+            })
+
+    }
+
+    const getUserToken = (email) => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.accessToken) {
+                    localStorage.setItem('accessToken', data.accessToken)
+                    navigate("/")
+                }
+                console.log(data)
+            })
+    }
 
     const handleGoogle = () => {
 
