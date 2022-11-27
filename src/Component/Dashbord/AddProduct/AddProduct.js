@@ -19,6 +19,7 @@ const AddProduct = () => {
         const userLocation = form.location.value
         const email = form.email.value
         const brand = form.catagory.value
+        const health = form.health.value
         const photo = form.photoURL.value
         const used = form.used.value
 
@@ -36,6 +37,7 @@ const AddProduct = () => {
             date,
             email,
             used,
+            health,
             advatise: false,
         }
         console.log(productData)
@@ -83,10 +85,15 @@ const AddProduct = () => {
 
 
                 <select name='catagory' className="select select-accent w-full mt-2">
-
                     <option>samsung</option>
                     <option>assus</option>
                     <option>walton</option>
+                </select>
+
+                <select name='health' className="select select-accent w-full mt-2">
+                    <option>excellent</option>
+                    <option>good</option>
+                    <option>fair</option>
                 </select>
 
                 <input name='photoURL' required type="text" placeholder="Photo URL" className="input input-bordered mt-5 input-accent w-full" />
