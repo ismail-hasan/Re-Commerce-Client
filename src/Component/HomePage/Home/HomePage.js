@@ -67,11 +67,16 @@ const HomePage = () => {
                         ></Adverties>)
                     }
 
-                    <AdvertiseModal
-                        advertiseShareData={advertiseShareData}
-                    >
 
-                    </AdvertiseModal>
+                    {
+                        advertiseShareData &&
+                        <AdvertiseModal
+                            advertiseShareData={advertiseShareData}
+                            setAdvertiseShareData={setAdvertiseShareData}
+                        >
+                        </AdvertiseModal>
+                    }
+
                 </div>
 
             </div>

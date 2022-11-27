@@ -10,7 +10,7 @@ const Adverties = ({ advatise, setAdvertiseShareData }) => {
             <img className='h-[250px]' src={photo} alt="" />
             <div className='px-2'>
                 <button className="btn btn-xs text-[10px]">{brand}</button>
-                <h1 className='pt-4 capitalize font-semibold text-2xl'>Product Name : {productName}</h1>
+                <h1 className='pt-4 capitalize font-semibold text-[20px]'>Product Name : {productName}</h1>
                 <p className='text-lg text-[tomato] font-bold'>Original Price : $ {originalPrice}</p>
                 <p className="">Sell Price : $ {sellPrice} </p>
                 <p>Seller Name : {userName}</p>

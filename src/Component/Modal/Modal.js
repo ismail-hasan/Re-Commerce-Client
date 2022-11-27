@@ -5,7 +5,7 @@ import { authProvider } from '../../AuthContext/AuthContext';
 
 const Modal = ({ product, setProduct }) => {
     const { user } = useContext(authProvider)
-    const { price, name } = product
+    const { sellPrice, name } = product
 
 
 
@@ -59,7 +59,7 @@ const Modal = ({ product, setProduct }) => {
 
                     <input name='email' defaultValue={user?.email} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
 
-                    <input name='price' defaultValue={price} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
+                    <input name='price' defaultValue={sellPrice} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
 
                     <input required name='phone' type="text" placeholder="Phone Number" className="input input-bordered input-accent w-full my-2" />
 
