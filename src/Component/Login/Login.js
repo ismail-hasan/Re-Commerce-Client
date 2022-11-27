@@ -44,7 +44,7 @@ const Login = () => {
                 const googleUser = {
                     displayName: user.displayName,
                     email: user.email,
-                    "roll": "Buyer Acount"
+                    "roll": "Buyer"
                 }
                 console.log(googleUser)
                 fetch(`http://localhost:5000/users`, {

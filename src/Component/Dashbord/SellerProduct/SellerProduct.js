@@ -42,7 +42,8 @@ const SellerProduct = () => {
 
     return (
         <div>
-            <h1 className='text-2xl font-semibold py-5 pb-10'>Welcome To <span className='text-3xl text-[tomato]'> {user?.email}</span></h1>
+            <h1 className='ml-5 text-lg md:text-2xl font-semibold pt-5'>Welcome To ,  </h1>
+            <h1 className='ml-5 text-[16px] md:w-full md:text-3xl text-[tomato] pb-10'> {user?.email}</h1>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">

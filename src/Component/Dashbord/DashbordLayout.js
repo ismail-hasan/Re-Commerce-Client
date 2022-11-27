@@ -38,25 +38,28 @@ const DashbordLayout = () => {
 
 
                         {
-                            loginUsers?.roll === "Buyer Acount" &&
+                            loginUsers?.roll === "Buyer" &&
                             <li><Link to='/dashbord/myproduct'>My Order</Link></li>
                         }
 
                         {
-                            loginUsers?.roll === "Seller Acount" &&
+                            loginUsers?.roll === "Seller" &&
                             <>
+
+
                                 <li><Link to='/dashbord/myproduct'>My Order</Link></li>
                                 <li><Link to='/dashbord/sellerprodct'>My Product</Link></li>
                                 <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
                             </>
                         }
-
                         {
                             loginUsers?.roll === "admin" &&
                             <>
-
+                                <li><Link to='/dashbord/myproduct'>My Order</Link></li>
                                 <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
-                                <li><Link to='/dashbord/useradmin'>Admin</Link></li>
+                                {/* <li><Link to='/dashbord/useradmin'>All Seller and Buyer</Link></li> */}
+                                <li><Link to='/dashbord/allseller'>All Seller</Link></li>
+                                <li><Link to='/dashbord/allbuyer'>All Buyer</Link></li>
                             </>
                         }
                     </ul>

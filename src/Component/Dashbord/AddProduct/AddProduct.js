@@ -55,6 +55,10 @@ const AddProduct = () => {
                     toast.success('product added success')
                     form.reset()
                 }
+                else {
+                    toast.error('already product added')
+
+                }
                 console.log(data)
 
             })
@@ -65,8 +69,8 @@ const AddProduct = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-semibold py-4 capitalize'>add a product</h1>
-            <form onSubmit={handleProduct} action="" className='w-[70%] ml-5'>
+            <h1 className='text-xl md:3xl ml-5 font-semibold py-4 capitalize'>add a product</h1>
+            <form onSubmit={handleProduct} action="" className='w-[90%] md:w-[80%] lg:w-[50%] mx-auto ml-5 border border-5 p-3'>
                 <input name='productName' defaultValue={user?.displayName} disabled readOnly required type="text" placeholder="User Name" className="input input-bordered mt-5 input-accent w-full" />
 
                 <input name='email' defaultValue={user?.email} disabled readOnly required type="email" placeholder="Email" className="input input-bordered mt-5 input-accent w-full" />

@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Blog from "../Component/BlogPage/Blog";
 import Catagory from "../Component/CatagoryPage/Catagory";
 import AddProduct from "../Component/Dashbord/AddProduct/AddProduct";
+import AllBuyer from "../Component/Dashbord/AllBuyer/AllBuyer";
+import AllSeller from "../Component/Dashbord/AllSeller/AllSeller";
 import DashbordLayout from "../Component/Dashbord/DashbordLayout";
 import MyProducts from "../Component/Dashbord/MyProdrcts/MyProducts";
 import SellerProduct from "../Component/Dashbord/SellerProduct/SellerProduct";
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/sellerprodct',
                 element: <PrivetRouter> <SellerProduct></SellerProduct> </PrivetRouter>,
+            },
+            {
+                path: '/dashbord/allbuyer',
+                element: <PrivetRouter> <AllBuyer></AllBuyer> </PrivetRouter>,
+            },
+            {
+                path: '/dashbord/allseller',
+                element: <PrivetRouter> <AllSeller></AllSeller> </PrivetRouter>,
             },
         ]
     }

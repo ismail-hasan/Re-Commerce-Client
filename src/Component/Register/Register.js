@@ -70,7 +70,7 @@ const Register = () => {
                 const googleUser = {
                     displayName: user.displayName,
                     email: user.email,
-                    "roll": "Buyer Acount"
+                    "roll": "Buyer"
                 }
                 console.log(googleUser)
                 fetch(`http://localhost:5000/users`, {
@@ -120,8 +120,8 @@ const Register = () => {
                         </label>
                         <select  {...register('roll')} className="select select-bordered">
 
-                            <option>Buyer Acount</option>
-                            <option>Seller Acount</option>
+                            <option>Buyer</option>
+                            <option>Seller</option>
 
                         </select>
 
