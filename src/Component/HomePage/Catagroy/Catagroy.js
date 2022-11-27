@@ -6,12 +6,12 @@ const Catagroy = ({ data }) => {
 
     return (
         <div>
-           
+
             <Link to={`/catagory/${catagory}`}>
-                <div className='bg-red-600 p-10 text-center text-white'>
-                    <div className={backgroundColor}>
-                        <h1>{name}</h1>
-                    </div>
+                <div className={`${backgroundColor} p-10 text-center text-white`}>
+                    <h1 className='text-lg text white capitalize'>{name}</h1>
+                    <p>Lorem ipsum dolor sit amet.</p>
+
                 </div>
             </Link>
         </div>

@@ -66,7 +66,7 @@ const Login = () => {
 
     return (
         <div className="bg-base-200 flex justify-center h-screen items-center">
-            <div className='w-[30%]'>
+            <div className='sm:w-[90%] md:w-[60%] lg:w-[30%]'>
                 <form onSubmit={handleSubmit(handleLogin)} className="">
 
                     <div className="form-control">

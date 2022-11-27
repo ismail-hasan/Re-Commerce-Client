@@ -2,6 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { authProvider } from '../../../AuthContext/AuthContext';
 
+
+
 const SellerProduct = () => {
     const { user } = useContext(authProvider)
 
@@ -14,7 +16,19 @@ const SellerProduct = () => {
             return data
         }
     })
-    console.log(sellerEmails);
+
+    const handleAdvites = (id) => {
+        console.log(id)
+        fetch(`http://localhost:5000/advites/${id}`, {
+            method: 'PATCH',
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    }
+
 
     return (
         <div>
@@ -27,6 +41,7 @@ const SellerProduct = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Job</th>
+                            <th>Advites</th>
                             <th>Favorite Color</th>
                         </tr>
                     </thead>
@@ -36,14 +51,15 @@ const SellerProduct = () => {
                             sellerEmails.map(seller => <tr>
                                 <th>3</th>
                                 <td>{seller.email}</td>
-                                <td>Tax Accountant</td>
+                                <td>{seller.userName}</td>
+                                <td><button onClick={() => handleAdvites(seller._id)} className='btn btn-xs'>advites</button></td>
                                 <td>Red</td>
                             </tr>)
                         }
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 

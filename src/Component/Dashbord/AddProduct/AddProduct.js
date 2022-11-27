@@ -30,11 +30,11 @@ const AddProduct = () => {
             brand,
             photo,
             date,
-            email
+            email,
+            advatise: false,
 
         }
-        // console.log(productData)
-
+        console.log(productData)
         //
 
 
@@ -64,7 +64,7 @@ const AddProduct = () => {
             <h1 className='text-3xl font-semibold py-4 capitalize'>add a product</h1>
             <form onSubmit={handleProduct} action="" className='w-[70%] ml-5'>
                 <input name='productName' defaultValue={user?.displayName} disabled readOnly required type="text" placeholder="User Name" className="input input-bordered mt-5 input-accent w-full" />
-                
+
                 <input name='email' defaultValue={user?.email} disabled readOnly required type="email" placeholder="Email" className="input input-bordered mt-5 input-accent w-full" />
 
                 <input name='userName' required type="text" placeholder="Product Name" className="input input-bordered mt-5 input-accent w-full" />
@@ -73,7 +73,7 @@ const AddProduct = () => {
 
 
                 <select name='catagory' className="select select-accent w-full mt-2">
-                  
+
                     <option>samsung</option>
                     <option>assus</option>
                     <option>walton</option>

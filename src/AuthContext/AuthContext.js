@@ -46,17 +46,16 @@ const AuthContext = ({ children }) => {
 
     //
 
-    // const [userVarify, setUserVarify] = useState([])
+    const [userVarify, setUserVarify] = useState([])
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/allusers`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             setUserVarify(data)
-    //         })
-    // }, [])
-    // console.log("context", userVarify);
+    useEffect(() => {
+        fetch(`http://localhost:5000/allusers`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setUserVarify(data)
+            })
+    }, [])
 
 
     //
@@ -68,6 +67,7 @@ const AuthContext = ({ children }) => {
         LogOut,
         userProfile,
         googleSignIn,
+        userVarify
 
 
     }
