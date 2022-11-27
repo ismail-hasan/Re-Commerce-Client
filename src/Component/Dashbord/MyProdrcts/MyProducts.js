@@ -40,7 +40,7 @@ const MyProducts = () => {
                 console.log(data)
             })
     }
-
+    console.log(products)
     return (
         <div>
             <h1 className='text-3xl font-semibold py-4 capitalize'>my products</h1>
@@ -64,7 +64,7 @@ const MyProducts = () => {
 
                             products.map((product, idx) => <tr key={product._id}>
                                 <th>{idx + 1}</th>
-                                <td className='capitalize'>{product.ProductName}</td>
+                                <td className='capitalize'>{product.productName}</td>
                                 <td>{product.producPrice}</td>
                                 <td>{product.userLocation}</td>
                                 <td><button onClick={() => handleDelete(product._id)} className="btn btn-xs">Delete</button></td>

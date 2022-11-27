@@ -5,7 +5,7 @@ import { authProvider } from '../../AuthContext/AuthContext';
 
 const Modal = ({ product, setProduct }) => {
     const { user } = useContext(authProvider)
-    const { sellPrice, name } = product
+    const { sellPrice, productName } = product
 
 
 
@@ -24,6 +24,7 @@ const Modal = ({ product, setProduct }) => {
             userPhone,
             userLocation,
             producPrice,
+            productName
             // ProductName: name
 
         }
@@ -43,7 +44,6 @@ const Modal = ({ product, setProduct }) => {
                     setProduct(null)
                 }
             })
-
     }
 
     return (
@@ -53,15 +53,15 @@ const Modal = ({ product, setProduct }) => {
             <div className="modal">
                 <form onSubmit={formHandle} className="modal-box relative">
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">Product Name :{name}</h3>
+                    <h3 className="text-lg font-bold">Product Name :{productName}</h3>
 
                     <input name='username' defaultValue={user?.displayName} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
 
                     <input name='email' defaultValue={user?.email} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
 
-                    <input name='price' defaultValue={sellPrice} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
+                    <input name='price' value={`$ ${sellPrice}`}  disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
 
-                    <input required name='phone' type="text" placeholder="Phone Number" className="input input-bordered input-accent w-full my-2" />
+                    <input required name='phone' type="number" placeholder="Phone Number" className="input input-bordered input-accent w-full my-2" />
 
                     <input required name='location' type="text" placeholder="Meet Location" className="input input-bordered input-accent w-full my-2" />
 

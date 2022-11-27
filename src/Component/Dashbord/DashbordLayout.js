@@ -29,14 +29,14 @@ const DashbordLayout = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>
-                   
+
 
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                     
+
                         {
                             loginUsers?.roll === "Buyer Acount" &&
                             <li><Link to='/dashbord/myproduct'>My Order</Link></li>
@@ -45,8 +45,9 @@ const DashbordLayout = () => {
                         {
                             loginUsers?.roll === "Seller Acount" &&
                             <>
-                                <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
+                                <li><Link to='/dashbord/myproduct'>My Order</Link></li>
                                 <li><Link to='/dashbord/sellerprodct'>My Product</Link></li>
+                                <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
                             </>
                         }
 

@@ -25,9 +25,10 @@ const Modal = ({ advertiseShareData, setAdvertiseShareData }) => {
             userPhone,
             userLocation,
             producPrice,
-            // ProductName: name
+            productName,
 
         }
+        console.log(formData)
 
         fetch('http://localhost:5000/bookings', {
             method: "POST",
@@ -61,9 +62,9 @@ const Modal = ({ advertiseShareData, setAdvertiseShareData }) => {
 
                     <input name='email' defaultValue={user?.email} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
 
-                    <input name='price' defaultValue={sellPrice} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
+                    <input name='price' value={`$ ${sellPrice}`} disabled readOnly type="text" placeholder="Type here" className="input input-bordered input-accent w-full my-2" />
 
-                    <input required name='phone' type="text" placeholder="Phone Number" className="input input-bordered input-accent w-full my-2" />
+                    <input required name='phone' type="number" placeholder="Phone Number" className="input input-bordered input-accent w-full my-2" />
 
                     <input required name='location' type="text" placeholder="Meet Location" className="input input-bordered input-accent w-full my-2" />
 
