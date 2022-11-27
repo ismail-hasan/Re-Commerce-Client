@@ -1,8 +1,8 @@
 
-const CatagoryList = ({ productData, setProduct }) => {
+const CatagoryList = ({ productData, setProduct, e }) => {
 
-    const { userName, originalPrice, brand, sellPrice, photo, date, productName } = productData
-    // console.log(productData)
+    const { userName, originalPrice, brand, sellPrice, photo, date, productName, used } = productData
+    console.log(productData)
 
     return (
         <div className='border pb-5'>
@@ -13,7 +13,7 @@ const CatagoryList = ({ productData, setProduct }) => {
                 <p className='text-lg text-[tomato] font-bold'>Original Price : $ {originalPrice}</p>
                 <p className="">Sell Price : $ {sellPrice} </p>
                 <p>Seller Name : {userName}</p>
-                <p className=''>Used : 5 Month </p>
+                <p className=''>Used : {used} Month </p>
                 <p className='pb-5'>Post Date: {date.slice(0, 10)}</p>
                 <label onClick={() => setProduct(productData)} htmlFor="my-modal-3" className="bg-gray-700 px-5 rounded-sm py-2 cursor-pointer text-white text-lg">Purses Now</label>
             </div>

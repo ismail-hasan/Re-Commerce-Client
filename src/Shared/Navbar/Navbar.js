@@ -12,9 +12,9 @@ const Navbar = () => {
             .then(() => { })
             .catch(e => console.log(e))
     }
-    if (loading) {
-        return <Loder></Loder>
-    }
+    // if (loading) {
+    //     return <Loder></Loder>
+    // }
 
     const Menu = <>
         {

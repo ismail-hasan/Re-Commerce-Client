@@ -8,9 +8,10 @@ import Loder from '../Loder';
 const DashbordLayout = () => {
 
     const { user, loading } = useContext(authProvider)
+
+
+
     const [loginUsers, setLoginUsers] = useState([])
-
-
     useEffect(() => {
         fetch(`http://localhost:5000/user?email=${user?.email}`)
             .then(res => res.json())
@@ -18,6 +19,9 @@ const DashbordLayout = () => {
                 setLoginUsers(data)
             })
     }, [user?.email])
+
+  
+
 
     if (loading) {
         return <Loder></Loder>

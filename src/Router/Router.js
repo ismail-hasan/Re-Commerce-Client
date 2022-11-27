@@ -55,27 +55,27 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashbord/addproduct',
-                element: <PrivetRouter><AddProduct></AddProduct></PrivetRouter>,
+                element: <AddProduct></AddProduct>,
             },
             {
                 path: '/dashbord/useradmin',
-                element: <PrivetRouter> <UserAdmin></UserAdmin> </PrivetRouter>,
+                element: <UserAdmin></UserAdmin>,
             },
             {
                 path: '/dashbord/sellerprodct',
-                element: <PrivetRouter> <SellerProduct></SellerProduct> </PrivetRouter>,
+                element: <SellerProduct></SellerProduct>,
             },
             {
                 path: '/dashbord/allbuyer',
-                element: <PrivetRouter> <AllBuyer></AllBuyer> </PrivetRouter>,
+                element: <AllBuyer></AllBuyer>,
             },
             {
                 path: '/dashbord/allseller',
-                element: <PrivetRouter> <AllSeller></AllSeller> </PrivetRouter>,
+                element: <AllSeller></AllSeller>,
             },
         ]
     }
 
 ])
 
-export default router
+export default router;

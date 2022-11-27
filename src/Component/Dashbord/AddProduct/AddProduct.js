@@ -96,7 +96,7 @@ const AddProduct = () => {
                 <input required name='phone' type="number" placeholder="Phone Number" className="input input-bordered mt-5 input-accent w-full" />
 
                 <input required name='location' type="text" placeholder="Location" className="input input-bordered mt-5 input-accent w-full" />
-                <input required name='used' type="text" placeholder="Used Month" className="input input-bordered mt-5 input-accent w-full" />
+                <input required name='used' type="number" placeholder="Used Month" className="input input-bordered mt-5 input-accent w-full" />
 
                 <button className="btn btn-black text-white btn-md my-5">Submit</button>
             </form>

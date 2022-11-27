@@ -1,14 +1,18 @@
-import React, {  useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { authProvider } from '../../AuthContext/AuthContext';
 import Modal from '../Modal/Modal';
 import CatagoryList from './CatagoryList';
 
 const Catagory = () => {
     const productDatas = useLoaderData()
-    const [product, setProduct] = useState(productDatas)
+    const [product, setProduct] = useState(null)
 
-    
-    
+    // const { userVarify } = useContext(authProvider)
+ 
+
+
+
     return (
         <div className='grid  grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-10 py-20 px-10 md:px-[70px]'>
             {
@@ -26,6 +30,7 @@ const Catagory = () => {
                 ></Modal>
             }
 
+           
         </div>
     );
 };

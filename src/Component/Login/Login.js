@@ -9,18 +9,18 @@ const Login = () => {
     const { signIn, googleSignIn } = useContext(authProvider)
     const { register, handleSubmit, } = useForm()
 
-    const [loginUser, setLoginUser] = useState('')
-    const [token] = useToken(loginUser)
+    // const [loginUser, setLoginUser] = useState('')
+    // const [token] = useToken(loginUser)
 
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
 
 
-    if (token) {
-        return navigate(from, { replace: true })
+    // if (token) {
+    //     return navigate(from, { replace: true })
 
-    }
+    // }
 
     const handleLogin = (data) => {
         console.log(data)
@@ -29,7 +29,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                setLoginUser(data.email)
+                // setLoginUser(data.email)
+                navigate(from, { replace: true })
 
             })
             .catch(e => console.log(e))
@@ -40,7 +41,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user
-                setLoginUser(user.email)
+                // setLoginUser(user.email)
                 const googleUser = {
                     displayName: user.displayName,
                     email: user.email,
@@ -58,6 +59,8 @@ const Login = () => {
                     .then(data => {
                         console.log(data)
                     })
+                navigate(from, { replace: true })
+
             })
             .catch(e => console.log(e))
     }

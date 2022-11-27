@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authProvider } from '../../AuthContext/AuthContext';
 import toast from 'react-hot-toast';
-import useToken from '../../Hook/Hook';
+// import useToken from '../../Hook/Hook';
 
 
 const Register = () => {
@@ -13,11 +13,11 @@ const Register = () => {
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate()
     const [createEmailUser, setCreateEmailUser] = useState('')
-    const [token] = useToken(createEmailUser)
+    // const [token] = useToken(createEmailUser)
 
-    if (token) {
-        return navigate('/')
-    }
+    // if (token) {
+    //     return navigate('/')
+    // }
 
     const handleRegister = (data) => {
         // console.log(data)
@@ -29,6 +29,8 @@ const Register = () => {
                 handleUserProfile(data.name)
                 toast.success('user added success')
                 saveUser(data.name, data.email, data.roll)
+                return navigate('/')
+
             })
             .catch(e => console.log(e))
 
@@ -62,7 +64,7 @@ const Register = () => {
             })
 
     }
-    
+
     const handleGoogle = () => {
         googleSignIn()
             .then(result => {

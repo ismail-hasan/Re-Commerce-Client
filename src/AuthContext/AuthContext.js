@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../FireBase/Firebase.init';
-import CatagoryList from '../Component/CatagoryPage/CatagoryList';
+
+
 
 
 export const authProvider = createContext()
@@ -42,20 +43,20 @@ const AuthContext = ({ children }) => {
         return () => {
             return unsubscribe()
         }
-    }, [])
+    }, [auth])
 
     //
 
-    const [userVarify, setUserVarify] = useState([])
+    // const [userVarify, setUserVarify] = useState([])
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/allusers`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data)
-                setUserVarify(data)
-            })
-    }, [])
+    // useEffect(() => {
+       
+    //     axios.get(`http://localhost:5000/allusers`)
+    //         .then(data => {
+    //             console.log('context', data.data)
+    //             setUserVarify(data.data)
+    //         })
+    // }, [])
 
 
     //
@@ -67,7 +68,7 @@ const AuthContext = ({ children }) => {
         LogOut,
         userProfile,
         googleSignIn,
-        userVarify
+       
 
 
     }
