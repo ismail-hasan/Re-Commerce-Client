@@ -24,7 +24,7 @@ const Modal = ({ product, setProduct }) => {
             userPhone,
             userLocation,
             producPrice,
-            ProductName: name
+            // ProductName: name
 
         }
 

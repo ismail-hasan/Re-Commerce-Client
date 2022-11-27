@@ -11,28 +11,32 @@ const AddProduct = () => {
         e.preventDefault()
 
         const form = e.target
-        const userName = form.userName.value
-        const name = form.productName.value
-        const price = form.price.value
+        const userName = form.productName.value
+        const productName = form.userName.value
+        const originalPrice = form.originalPrice.value
+        const sellPrice = form.sellPrice.value
         const productPhone = form.phone.value
         const userLocation = form.location.value
         const email = form.email.value
         const brand = form.catagory.value
         const photo = form.photoURL.value
+        const used = form.used.value
+
 
 
         const productData = {
+            productName,
             userName,
-            name,
-            price,
+            originalPrice,
+            sellPrice,
             productPhone,
             userLocation,
             brand,
             photo,
             date,
             email,
+            used,
             advatise: false,
-
         }
         console.log(productData)
         //
@@ -69,7 +73,9 @@ const AddProduct = () => {
 
                 <input name='userName' required type="text" placeholder="Product Name" className="input input-bordered mt-5 input-accent w-full" />
 
-                <input name='price' required type="text" placeholder="Product Price" className="input input-bordered mt-5 input-accent w-full" />
+                <input name='originalPrice' required type="number" placeholder="Product Original Price" className="input input-bordered mt-5 input-accent w-full" />
+
+                <input name='sellPrice' required type="number" placeholder="Product Sell Price" className="input input-bordered mt-5 input-accent w-full" />
 
 
                 <select name='catagory' className="select select-accent w-full mt-2">
@@ -83,11 +89,12 @@ const AddProduct = () => {
 
 
 
-                <input required name='phone' type="text" placeholder="Phone Number" className="input input-bordered mt-5 input-accent w-full" />
+                <input required name='phone' type="number" placeholder="Phone Number" className="input input-bordered mt-5 input-accent w-full" />
 
                 <input required name='location' type="text" placeholder="Location" className="input input-bordered mt-5 input-accent w-full" />
+                <input required name='used' type="text" placeholder="Used Month" className="input input-bordered mt-5 input-accent w-full" />
 
-                <button className="btn btn-accent btn-md my-5">Button</button>
+                <button className="btn btn-black text-white btn-md my-5">Submit</button>
             </form>
         </div>
     );

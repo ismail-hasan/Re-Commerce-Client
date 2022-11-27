@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import AdvertiseModal from '../../Modal/AdvertiseModal';
 import Adverties from '../Adverties/Adverties';
 import Catagroy from '../Catagroy/Catagroy';
 import Home from './Home';
@@ -30,6 +31,8 @@ const HomePage = () => {
     //advatise data 
 
     const [advatiesData, setadvatiesData] = useState([])
+    const [advertiseShareData, setAdvertiseShareData] = useState(advatiesData)
+
     useEffect(() => {
         fetch(`http://localhost:5000/advites`,)
             .then(res => res.json())
@@ -49,14 +52,28 @@ const HomePage = () => {
                 }
             </div>
 
-            <div>
-                <h1 className='text-center font-semibold text-3xl capitalize pb-9'>Latest Catagory</h1>
+            <div className=''>
                 {
-                    advatiesData.map(advatise => <Adverties
-                        advatise={advatise}
-                        key={advatise._id}
-                    ></Adverties>)
+                    advatiesData.length > 0 &&
+                    <h1 className='text-center font-semibold text-3xl capitalize pb-9'>advertise Product</h1>
                 }
+
+                <div className='grid md:grid-cols-2  lg:grid-cols-3 gap-10 '>
+                    {
+                        advatiesData.map(advatise => <Adverties
+                            key={advatise._id}
+                            advatise={advatise}
+                            setAdvertiseShareData={setAdvertiseShareData}
+                        ></Adverties>)
+                    }
+
+                    <AdvertiseModal
+                        advertiseShareData={advertiseShareData}
+                    >
+
+                    </AdvertiseModal>
+                </div>
+
             </div>
 
         </div>
