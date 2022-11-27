@@ -13,14 +13,14 @@ const DashbordLayout = () => {
 
     const [loginUsers, setLoginUsers] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${user?.email}`)
+        fetch(`https://re-commerce.vercel.app/user?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setLoginUsers(data)
             })
     }, [user?.email])
 
-  
+
 
 
     if (loading) {
@@ -61,9 +61,10 @@ const DashbordLayout = () => {
                             <>
                                 <li><Link to='/dashbord/myproduct'>My Order</Link></li>
                                 <li><Link to='/dashbord/addproduct'>Add To Product</Link></li>
-                                {/* <li><Link to='/dashbord/useradmin'>All Seller and Buyer</Link></li> */}
+                                <li><Link to='/dashbord/useradmin'>All Seller and Buyer</Link></li>
                                 <li><Link to='/dashbord/allseller'>All Seller</Link></li>
                                 <li><Link to='/dashbord/allbuyer'>All Buyer</Link></li>
+                                <li><Link to='/dashbord/report'>Report</Link></li>
                             </>
                         }
                     </ul>

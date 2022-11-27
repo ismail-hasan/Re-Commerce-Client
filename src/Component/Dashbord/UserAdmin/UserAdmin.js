@@ -10,7 +10,7 @@ const UserAdmin = () => {
     const { data: allData = [], isLoading, refetch } = useQuery({
         queryKey: ["allusers"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allusers`)
+            const res = await fetch(`https://re-commerce.vercel.app/allusers`)
             const data = await res.json()
             return data
         }
@@ -23,7 +23,7 @@ const UserAdmin = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/allusers/${id}`, {
+        fetch(`https://re-commerce.vercel.app/allusers/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -37,7 +37,7 @@ const UserAdmin = () => {
             })
     }
     const handleVarify = (id) => {
-        fetch(`http://localhost:5000/allusers/varify/${id}`, {
+        fetch(`https://re-commerce.vercel.app/allusers/varify/${id}`, {
             method: "PUT"
         })
             .then(res => res.json())

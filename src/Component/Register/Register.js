@@ -50,7 +50,7 @@ const Register = () => {
     const saveUser = (name, email, roll) => {
         const user = { name, email, roll }
         console.log(user)
-        fetch('http://localhost:5000/users', {
+        fetch('https://re-commerce.vercel.app/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -75,7 +75,7 @@ const Register = () => {
                     "roll": "Buyer"
                 }
                 console.log(googleUser)
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://re-commerce.vercel.app/users`, {
                     method: "POST",
                     headers: {
                         'content-type': "application/json",

@@ -10,7 +10,7 @@ const AllSeller = () => {
     const { data: allData = [], isLoading, refetch } = useQuery({
         queryKey: ["allusers"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/userroll?roll=Seller`)
+            const res = await fetch(`https://re-commerce.vercel.app/userroll?roll=Seller`)
             const data = await res.json()
             return data
         }
@@ -23,7 +23,7 @@ const AllSeller = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/allusers/${id}`, {
+        fetch(`https://re-commerce.vercel.app/allusers/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -37,7 +37,7 @@ const AllSeller = () => {
             })
     }
     const handleVarify = (id) => {
-        fetch(`http://localhost:5000/allusers/varify/${id}`, {
+        fetch(`https://re-commerce.vercel.app/allusers/varify/${id}`, {
             method: "PUT"
         })
             .then(res => res.json())
@@ -53,7 +53,7 @@ const AllSeller = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-semibold py-6 capitalize'>Admin Dashbord</h1>
+            <h1 className='text-lg md:text-3xl font-semibold py-6 capitalize'>Admin Dashbord</h1>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">

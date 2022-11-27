@@ -12,7 +12,7 @@ const SellerProduct = () => {
     const { data: sellerEmails = [] } = useQuery({
         queryKey: ["laptop"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/laptop?email=${user.email}`)
+            const res = await fetch(`https://re-commerce.vercel.app/laptop?email=${user.email}`)
             const data = await res.json()
             return data
         }
@@ -22,7 +22,7 @@ const SellerProduct = () => {
 
     const handleAdvites = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/advites/${id}`, {
+        fetch(`https://re-commerce.vercel.app/advites/${id}`, {
             method: 'PATCH',
 
         })

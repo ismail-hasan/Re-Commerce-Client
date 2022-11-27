@@ -48,7 +48,7 @@ const Login = () => {
                     "roll": "Buyer"
                 }
                 console.log(googleUser)
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://re-commerce.vercel.app/users`, {
                     method: "POST",
                     headers: {
                         'content-type': "application/json",

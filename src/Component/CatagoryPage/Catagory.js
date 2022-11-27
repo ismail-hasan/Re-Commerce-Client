@@ -8,13 +8,10 @@ const Catagory = () => {
     const productDatas = useLoaderData()
     const [product, setProduct] = useState(null)
 
-    // const { userVarify } = useContext(authProvider)
- 
-
 
 
     return (
-        <div className='grid  grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-10 py-20 px-10 md:px-[70px]'>
+        <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-20 px-10 md:px-[70px]'>
             {
                 productDatas.map(productData => <CatagoryList
                     key={productData._id}

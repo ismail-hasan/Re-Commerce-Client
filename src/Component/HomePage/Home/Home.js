@@ -10,7 +10,7 @@ const Home = () => {
                     <h1 className="text-4xl font-bold text-black">Welcome To Re-Commerce</h1>
                     <p className="py-6 mr-5 text-lg">Re-Commerce website is a buy selling website . any kind of user bying product of our website. and sell product . how ever enjoy our re commerce</p>
                     <Link to={'/catagory/samsung'}>
-                        <button className="btn btn-primary">Get Started</button>
+                        <button className="btn btn-primary">Shop Now</button>
                     </Link>
 
                 </div>

@@ -44,7 +44,7 @@ const AddProduct = () => {
         //
 
 
-        fetch('http://localhost:5000/allLaptop', {
+        fetch('https://re-commerce.vercel.app/allLaptop', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

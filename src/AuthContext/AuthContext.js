@@ -45,21 +45,7 @@ const AuthContext = ({ children }) => {
         }
     }, [auth])
 
-    //
-
-    // const [userVarify, setUserVarify] = useState([])
-
-    // useEffect(() => {
-       
-    //     axios.get(`http://localhost:5000/allusers`)
-    //         .then(data => {
-    //             console.log('context', data.data)
-    //             setUserVarify(data.data)
-    //         })
-    // }, [])
-
-
-    //
+   
     const userInfo = {
         user,
         loading,
@@ -68,7 +54,7 @@ const AuthContext = ({ children }) => {
         LogOut,
         userProfile,
         googleSignIn,
-       
+
 
 
     }

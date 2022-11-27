@@ -11,7 +11,7 @@ const MyProducts = () => {
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ["bookings", user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/book?email=${user?.email}`, {
+            const res = await fetch(`https://re-commerce.vercel.app/book?email=${user?.email}`, {
                 headers: {
                     authorization: `bearar ${localStorage.getItem('accessToken')}`
                 }
@@ -28,7 +28,7 @@ const MyProducts = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://re-commerce.vercel.app/bookings/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

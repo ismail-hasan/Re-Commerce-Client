@@ -6,6 +6,7 @@ import AllBuyer from "../Component/Dashbord/AllBuyer/AllBuyer";
 import AllSeller from "../Component/Dashbord/AllSeller/AllSeller";
 import DashbordLayout from "../Component/Dashbord/DashbordLayout";
 import MyProducts from "../Component/Dashbord/MyProdrcts/MyProducts";
+import Report from "../Component/Dashbord/Report/Report";
 import SellerProduct from "../Component/Dashbord/SellerProduct/SellerProduct";
 import UserAdmin from "../Component/Dashbord/UserAdmin/UserAdmin";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: '/catagory/:brand',
                 element: <PrivetRouter><Catagory></Catagory></PrivetRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/alllaptops/${params.brand}`)
+                loader: ({ params }) => fetch(`https://re-commerce.vercel.app/alllaptops/${params.brand}`)
 
             },
         ]
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashbord/allseller',
                 element: <AllSeller></AllSeller>,
+            },
+            {
+                path: '/dashbord/report',
+                element: <Report></Report>,
             },
         ]
     }
