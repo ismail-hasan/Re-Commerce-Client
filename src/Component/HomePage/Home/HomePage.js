@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { authProvider } from '../../../AuthContext/AuthContext';
 import AdvertiseModal from '../../Modal/AdvertiseModal';
 import Adverties from '../Adverties/Adverties';
 import Catagroy from '../Catagroy/Catagroy';
 import Home from './Home';
 
 const HomePage = () => {
+    const { user } = useContext(authProvider)
 
     const cataData = [
         {
@@ -52,35 +54,38 @@ const HomePage = () => {
                 }
             </div>
 
-            <div className=''>
-                {
-                    advatiesData.length > 0 &&
-                    <h1 className='text-center font-semibold text-3xl capitalize pb-9'>advertise Product</h1>
-                }
+            {
+                user?.email ?
+                    <>
+                        <div className=''>
+                            {
+                                advatiesData.length > 0 &&
+                                <h1 className='text-center font-semibold text-3xl capitalize pb-9'>advertise Product</h1>
+                            }
 
-                <div className='grid md:grid-cols-2  lg:grid-cols-3 gap-10 '>
-                    {
-                        advatiesData.map(advatise => <Adverties
-                            key={advatise._id}
-                            advatise={advatise}
-                            setAdvertiseShareData={setAdvertiseShareData}
-                        ></Adverties>)
-                    }
-
-
-                    {
-                        advertiseShareData &&
-                        <AdvertiseModal
-                            advertiseShareData={advertiseShareData}
-                            setAdvertiseShareData={setAdvertiseShareData}
-                        >
-                        </AdvertiseModal>
-                    }
-
-                </div>
-
-            </div>
-
+                            <div className='grid md:grid-cols-2  lg:grid-cols-3 gap-10 '>
+                                {
+                                    advatiesData.map(advatise => <Adverties
+                                        key={advatise._id}
+                                        advatise={advatise}
+                                        setAdvertiseShareData={setAdvertiseShareData}
+                                    ></Adverties>)
+                                }
+                                {
+                                    advertiseShareData &&
+                                    <AdvertiseModal
+                                        advertiseShareData={advertiseShareData}
+                                        setAdvertiseShareData={setAdvertiseShareData}>
+                                    </AdvertiseModal>
+                                }
+                            </div>
+                        </div>
+                    </>
+                    :
+                    <>
+                        <h1 className='text-lg text-red-500'>First Login Then See Advertise Product</h1>
+                    </>
+            }
         </div>
     );
 };
