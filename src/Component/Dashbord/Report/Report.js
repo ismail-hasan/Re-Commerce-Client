@@ -7,7 +7,7 @@ const Report = () => {
     const { data: reports = [], refetch } = useQuery({
         queryKey: ["report"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/report`)
+            const res = await fetch(`https://re-commerce.vercel.app/report`)
             const data = await res.json()
             return data
         }
@@ -16,13 +16,13 @@ const Report = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/report/${id}`, {
+        fetch(`https://re-commerce.vercel.app/report/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    toast.error('reported item delted')
+                    toast.success('reported item delted')
                     refetch()
                 }
             })

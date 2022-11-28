@@ -64,7 +64,7 @@ const UserAdmin = () => {
                             <th>Email</th>
                             <th>Name</th>
                             <th>Roll</th>
-                            <th>IsVerify</th>
+                           
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -77,7 +77,7 @@ const UserAdmin = () => {
                                 <td>{data.name}</td>
                                 <td className='font-bold'>{data.roll}</td>
 
-                                <td className='font-bold'>{data?.isvarify !== "varify" && <button disabled={data.roll === "admin"} onClick={() => handleVarify(data._id)} className='btn btn-xs'>Verify</button>}</td>
+                                {/* <td className='font-bold'>{data?.isvarify !== "varify" && <button disabled={data.roll === "admin"} onClick={() => handleVarify(data._id)} className='btn btn-xs'>Verify</button>}</td> */}
 
                                 <td><button className='btn btn-xs' disabled={data.roll === "admin"} onClick={() => handleDelete(data._id)}>delete</button></td>
                             </tr>)

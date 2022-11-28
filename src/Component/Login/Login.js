@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { authProvider } from '../../AuthContext/AuthContext';
 import { AiOutlineGoogle } from 'react-icons/ai';
-import useToken from '../../Hook/Hook';
+
 
 const Login = () => {
     const { signIn, googleSignIn } = useContext(authProvider)
@@ -15,12 +15,6 @@ const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
-
-
-    // if (token) {
-    //     return navigate(from, { replace: true })
-
-    // }
 
     const handleLogin = (data) => {
         console.log(data)
@@ -43,7 +37,7 @@ const Login = () => {
                 const user = result.user
                 // setLoginUser(user.email)
                 const googleUser = {
-                    displayName: user.displayName,
+                    name: user.displayName,
                     email: user.email,
                     "roll": "Buyer"
                 }
@@ -58,8 +52,8 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
+                        navigate(from, { replace: true })
                     })
-                navigate(from, { replace: true })
 
             })
             .catch(e => console.log(e))

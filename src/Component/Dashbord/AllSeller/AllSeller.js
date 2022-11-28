@@ -37,23 +37,24 @@ const AllSeller = () => {
             })
     }
     const handleVarify = (id) => {
-        fetch(`https://re-commerce.vercel.app/allusers/varify/${id}`, {
+        console.log(id)
+        fetch(`http://localhost:5000/alllaptops/varify/${id}`, {
             method: "PUT"
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.modifiedCount > 0) {
-                    toast.success('user varifyed')
-                    refetch()
+                // if (data.modifiedCount > 0) {
+                //     toast.success('user varifyed')
+                //     refetch()
 
-                }
+                // }
             })
     }
 
     return (
         <div>
-            <h1 className='text-lg md:text-3xl font-semibold py-6 capitalize'>Admin Dashbord</h1>
+            <h1 className='text-lg md:text-3xl font-semibold py-6 capitalize'>All Sellers</h1>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -77,7 +78,7 @@ const AllSeller = () => {
                                 <td>{data.name}</td>
                                 <td className='font-bold'>{data.roll}</td>
 
-                                <td className='font-bold'>{data?.isvarify !== "varify" && <button disabled={data.roll === "admin"} onClick={() => handleVarify(data._id)} className='btn btn-xs'>Verify</button>}</td>
+                                <td className='font-bold'>{data?.isvarify !== "varify" && <button disabled={data.roll === "admin"} onClick={() => handleVarify(data.email)} className='btn btn-xs'>Verify</button>}</td>
 
                                 <td><button className='btn btn-xs' disabled={data.roll === "admin"} onClick={() => handleDelete(data._id)}>delete</button></td>
                             </tr>)

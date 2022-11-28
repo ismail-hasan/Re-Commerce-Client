@@ -70,7 +70,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 const googleUser = {
-                    displayName: user.displayName,
+                    name: user.displayName,
                     email: user.email,
                     "roll": "Buyer"
                 }
@@ -85,6 +85,7 @@ const Register = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
+                        navigate("/")
                     })
             })
             .catch(e => console.log(e))
@@ -111,7 +112,7 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input required  {...register('password')} type="text" placeholder="password" className="input input-bordered" />
+                        <input required  {...register('password')} type="password" placeholder="password" className="input input-bordered" />
 
                     </div>
 

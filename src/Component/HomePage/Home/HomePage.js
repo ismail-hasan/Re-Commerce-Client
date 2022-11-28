@@ -16,21 +16,26 @@ const HomePage = () => {
             name: "samsung",
             backgroundColor: "bg-green-500",
             catagory: "samsung",
-            dec: "Shop Samsung line of Galaxy Books, including any laptops"
+            dec: "Shop Samsung line of Galaxy Books, including any laptops",
+            img: "https://i.ibb.co/fkpFMZQ/pexels-veeterzy-303383.jpg"
         },
         {
             id: 2,
             name: "walton",
             catagory: "walton",
             backgroundColor: "bg-blue-500",
-            dec: "Save instantly with walton desktop tablet and laptop"
+            dec: "Save instantly with walton desktop tablet and laptop",
+            img: "https://i.ibb.co/fkpFMZQ/pexels-veeterzy-303383.jpg"
+
         },
         {
             id: 3,
             catagory: "assus",
             name: "assus",
             backgroundColor: "bg-red-500",
-            dec: "Buy assus Laptop at the best price in Bangladesh"
+            dec: "Buy assus Laptop at the best price in Bangladesh",
+            img: "https://i.ibb.co/fkpFMZQ/pexels-veeterzy-303383.jpg"
+
         },
 
     ]

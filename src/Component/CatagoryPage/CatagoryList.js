@@ -7,13 +7,13 @@ const CatagoryList = ({ productData, setProduct, e }) => {
 
     const handleReport = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/report/${id}`, {
+        fetch(`https://re-commerce.vercel.app/report/${id}`, {
             method: "PUT",
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast.error("product reported success")
+                    toast.success("product reported success")
                 }
                 else {
                     toast.error("product alreay repoted")
