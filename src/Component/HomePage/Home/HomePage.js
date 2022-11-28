@@ -6,10 +6,13 @@ import Adverties from '../Adverties/Adverties';
 import Banner from '../Banner/Banner';
 import Catagroy from '../Catagroy/Catagroy';
 import Home from './Home';
+import img1 from '../../../assests/img1.jpg'
+import img2 from '../../../assests/img2.jpg'
+
+import './HomePage.css'
 
 const HomePage = () => {
     const { user } = useContext(authProvider)
-
     const cataData = [
         {
             id: 1,
@@ -17,7 +20,7 @@ const HomePage = () => {
             backgroundColor: "bg-green-500",
             catagory: "samsung",
             dec: "Shop Samsung line of Galaxy Books, including any laptops",
-            img: "https://i.ibb.co/fkpFMZQ/pexels-veeterzy-303383.jpg"
+            img: img1
         },
         {
             id: 2,
@@ -25,7 +28,7 @@ const HomePage = () => {
             catagory: "walton",
             backgroundColor: "bg-blue-500",
             dec: "Save instantly with walton desktop tablet and laptop",
-            img: "https://i.ibb.co/fkpFMZQ/pexels-veeterzy-303383.jpg"
+            img: img2 
 
         },
         {
@@ -34,7 +37,7 @@ const HomePage = () => {
             name: "assus",
             backgroundColor: "bg-red-500",
             dec: "Buy assus Laptop at the best price in Bangladesh",
-            img: "https://i.ibb.co/fkpFMZQ/pexels-veeterzy-303383.jpg"
+            img: img1
 
         },
 
@@ -56,7 +59,7 @@ const HomePage = () => {
         <div className='px-[20px] md:px-[60px] my-10'>
             <Home></Home>
             <h1 className='text-center font-semibold text-3xl capitalize pb-9'>Latest Catagory</h1>
-            <div className='grid md:grid-cols-2  lg:grid-cols-3 gap-7 mb-16'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16'>
                 {
                     cataData.map(data => <Catagroy data={data} key={data.id}></Catagroy>)
                 }

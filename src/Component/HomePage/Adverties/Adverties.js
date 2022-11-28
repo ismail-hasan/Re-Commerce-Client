@@ -24,7 +24,7 @@ const Adverties = ({ advatise, setAdvertiseShareData }) => {
     return (
 
         <div className='border pb-5' >
-            <img className='h-[250px]' src={photo} alt="" />
+            <img className='h-[250px] mb-3' src={photo} alt="" />
             <div className='px-2'>
                 <div className="flex">
                     <button className="btn btn-xs text-[10px] mr-10">{brand}</button>

@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 const CatagoryList = ({ productData, setProduct, e }) => {
 
     const { _id, userName, userLocation, health, originalPrice, brand, sellPrice, photo, date, productName, used } = productData
-    console.log(productData)
+    // console.log(productData)
 
     const handleReport = (id) => {
         console.log(id)

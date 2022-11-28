@@ -35,13 +35,12 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user
-                // setLoginUser(user.email)
                 const googleUser = {
                     name: user.displayName,
                     email: user.email,
                     "roll": "Buyer"
                 }
-                console.log(googleUser)
+                // console.log(googleUser)
                 fetch(`https://re-commerce.vercel.app/users`, {
                     method: "POST",
                     headers: {

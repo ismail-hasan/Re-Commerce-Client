@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Catagroy = ({ data }) => {
-    const { name, backgroundColor, dec, catagory, img } = data
+    const { name, dec, catagory, img } = data
 
     return (
         <div>
 
             <Link to={`/catagory/${catagory}`}>
-                <div style={{ backgroundImage: `url(${img})` }} className={`${backgroundColor}   p-10 text-center text-white`}>
-                    <h1 className='text-lg md:text-3xl mb-2 text white capitalize'>{name}</h1>
-                    <p>{dec}</p>
+                <div className="card h-[260px] w-full  bg-base-100 shadow-xl image-full text-center">
+                    <figure><img src={img} alt="Shoes" /></figure>
+                    <div className=" text-center flex items-center flex-col justify-center px-5 z-10 text-white">
+                        <h2 className="text-[35px] capitalize font-semibold">{name}</h2>
+                        <p>{dec}</p>
 
-
+                    </div>
                 </div>
             </Link>
         </div>

@@ -39,6 +39,7 @@ const AddProduct = () => {
             used,
             health,
             advatise: false,
+            varify: false
         }
         console.log(productData)
         //

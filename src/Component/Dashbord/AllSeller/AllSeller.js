@@ -38,7 +38,7 @@ const AllSeller = () => {
     }
     const handleVarify = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/alllaptops/varify/${id}`, {
+        fetch(`http://localhost:5000/varifylaptop/${id}`, {
             method: "PUT"
         })
             .then(res => res.json())
@@ -78,7 +78,7 @@ const AllSeller = () => {
                                 <td>{data.name}</td>
                                 <td className='font-bold'>{data.roll}</td>
 
-                                <td className='font-bold'>{data?.isvarify !== "varify" && <button disabled={data.roll === "admin"} onClick={() => handleVarify(data.email)} className='btn btn-xs'>Verify</button>}</td>
+                                <td className='font-bold'>{data?.isvarify !== "varify" && <button disabled={data.roll === "admin"} onClick={() => handleVarify(data._id)} className='btn btn-xs'>Verify</button>}</td>
 
                                 <td><button className='btn btn-xs' disabled={data.roll === "admin"} onClick={() => handleDelete(data._id)}>delete</button></td>
                             </tr>)

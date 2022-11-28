@@ -1,12 +1,13 @@
 # our website name is Re-Commerce .
 
-###### re-commerce is a secend hand product selling website . any kind of user can by and sell product of re-commerce webiste . some featcher of re-commerce :
+##### re-commerce is a secend hand product selling website . any kind of user can by and sell product of re-commerce webiste .
 
-live link : [Re-commerce](https://assignment-12-dd734.web.app) 
+live link : [Re-commerce](https://assignment-12-dd734.web.app)
 and admin user pass is :
-- **user : admin**
-- **password : aaaaaa**
 
+- **user : admin@gmail.com**
+- **password : aaaaaa**
+## some featcher of re-commerce :
 - recommerce website created by react,react form hook , firbase , react query node , mongodb etc.
 - authentication system .
 - product report system .
