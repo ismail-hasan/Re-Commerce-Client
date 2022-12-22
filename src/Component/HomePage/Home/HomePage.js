@@ -10,6 +10,7 @@ import img1 from '../../../assests/img1.jpg'
 import img2 from '../../../assests/img2.jpg'
 
 import './HomePage.css'
+import HomeInfo from '../HomeInfo/HomeInfo';
 
 const HomePage = () => {
     const { user } = useContext(authProvider)
@@ -28,7 +29,7 @@ const HomePage = () => {
             catagory: "walton",
             backgroundColor: "bg-blue-500",
             dec: "Save instantly with walton desktop tablet and laptop",
-            img: img2 
+            img: img2
 
         },
         {
@@ -65,6 +66,7 @@ const HomePage = () => {
                 }
             </div>
             <Banner></Banner>
+            <HomeInfo></HomeInfo>
             {
                 user?.email ?
                     <>
